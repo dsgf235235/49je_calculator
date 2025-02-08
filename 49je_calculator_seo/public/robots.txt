@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://49calculator.netlify.app/sitemap.xml

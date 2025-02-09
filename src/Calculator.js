@@ -12,43 +12,45 @@ export default function Calculator() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-yellow-200 to-orange-400 p-6 relative">
-      {/* 배경 이미지 추가 (국화꽃 배경) */}
-      <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('https://source.unsplash.com/featured/?chrysanthemum,flowers')" }}></div>
-      
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 relative">
       {/* 헤더 */}
-      <header className="relative z-10 w-full p-6 text-center bg-yellow-700 text-white text-3xl font-bold shadow-md rounded-md">
-        49제 날짜 계산기
+      <header className="w-full text-center py-4 bg-blue-500 text-white text-2xl font-bold shadow">
+        쉽고 간편한 49제 날짜 계산기
       </header>
-      
-      {/* 카드 UI */}
-      <div className="relative z-10 bg-white rounded-3xl shadow-2xl p-8 mt-10 w-96 text-center border-4 border-yellow-500">
-        <h2 className="text-xl font-bold text-gray-900 mb-6">49제 날짜 계산</h2>
 
-        <input
-          type="date"
-          value={inputDate}
-          onChange={(e) => setInputDate(e.target.value)}
-          className="w-full p-3 border rounded-lg mb-6 text-lg"
-        />
+      {/* 메인 카드 */}
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 mt-6">
+        <h2 className="text-xl font-bold text-gray-700 mb-4">49제 날짜 계산</h2>
+        <p className="text-sm text-gray-500 mb-4">49제를 계산하려면 날짜를 입력하세요.</p>
+
+        <div className="flex items-center gap-2 mb-4">
+          <label className="text-sm font-medium text-gray-600">날짜:</label>
+          <input
+            type="date"
+            value={inputDate}
+            onChange={(e) => setInputDate(e.target.value)}
+            className="flex-1 p-2 border rounded-md focus:outline-blue-400"
+          />
+        </div>
 
         <button
           onClick={handleCalculate}
-          className="w-full p-3 bg-yellow-600 text-white font-semibold rounded-lg hover:bg-yellow-700 transition shadow-lg"
+          className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition shadow-sm"
         >
           계산하기
         </button>
 
         {resultDate && (
-          <p className="mt-6 text-xl font-semibold text-gray-900 bg-yellow-200 p-3 rounded-lg shadow-md">
-            49제 날짜: <span className="text-yellow-800 font-bold">{resultDate}</span>
-          </p>
+          <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
+            <p className="text-lg text-gray-700 font-semibold">49제 날짜:</p>
+            <p className="text-xl text-blue-700 font-bold">{resultDate}</p>
+          </div>
         )}
       </div>
 
       {/* 푸터 */}
-      <footer className="relative z-10 w-full p-4 text-center bg-yellow-700 text-white text-sm mt-10 rounded-md shadow-md">
-        © 2024 49제 계산기 | 불교 전통 기일 계산 서비스
+      <footer className="mt-8 text-center text-sm text-gray-500">
+        오늘은 {format(new Date(), "yyyy년 MM월 dd일 (E)")}입니다.
       </footer>
     </div>
   );

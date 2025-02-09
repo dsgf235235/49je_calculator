@@ -12,9 +12,12 @@ export default function Calculator() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-yellow-200 to-orange-400 p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-yellow-200 to-orange-400 p-6 relative">
+      {/* 배경 이미지 추가 (국화꽃 배경) */}
+      <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('https://source.unsplash.com/featured/?chrysanthemum,flowers')" }}></div>
+      
       {/* 헤더 */}
-      <header className="w-full p-6 text-center bg-yellow-700 text-white text-3xl font-bold shadow-md rounded-md">
+      <header className="relative z-10 w-full p-6 text-center bg-yellow-700 text-white text-3xl font-bold shadow-md rounded-md">
         49제 날짜 계산기
       </header>
       
@@ -44,10 +47,9 @@ export default function Calculator() {
       </div>
 
       {/* 푸터 */}
-      <footer className="w-full p-4 text-center bg-yellow-700 text-white text-sm mt-10 rounded-md shadow-md">
+      <footer className="relative z-10 w-full p-4 text-center bg-yellow-700 text-white text-sm mt-10 rounded-md shadow-md">
         © 2024 49제 계산기 | 불교 전통 기일 계산 서비스
       </footer>
     </div>
   );
 }
-
